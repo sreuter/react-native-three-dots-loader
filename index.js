@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Animated, Easing } from 'react-native'
+import { View, StyleSheet, Animated, Easing, Platform } from 'react-native'
 
 const SIZE = 7
 const MARGIN = 5
@@ -69,6 +69,7 @@ class Dot extends React.Component {
       {
         toValue: 1,
         duration: this.props.animationDuration,
+        useNativeDriver: useNativeDriver: Platform.OS === "web" ? false : true
       }
     ).start()
   }
@@ -79,6 +80,7 @@ class Dot extends React.Component {
       {
         toValue: this.props.animationScale,
         duration: this.props.animationDuration,
+        useNativeDriver: useNativeDriver: Platform.OS === "web" ? false : true
       }
     ).start()
   }
